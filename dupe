@@ -1,0 +1,47 @@
+-- MP4 HUB AFS
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "MP4 HUB", HidePremium = false,IntroText = "MP4 HUB",IntroIcon = "rbxassetid://11289930471", SaveConfig = true, ConfigFolder = "KAILINDO"})
+
+OrionLib:MakeNotification({
+	Name = "Notification!",
+	Content = "Welcome to mp4 hub. Thank you very much for using our script❤️",
+	Image = "rbxassetid://11289930471",
+	Time = 5
+})
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://11289930471",
+	PremiumOnly = false
+})
+
+Tab:AddParagraph("This Script was created by Kai","Subscribe to YouTube kaiozin.mp4")
+
+Tab:AddButton({
+	Name = "Freze Data",
+	Callback = function()
+        game:GetService("ReplicatedStorage").Remote.SetDungeonSetting:FireServer("Theme",  Options[Options.Current])
+      TextField:SetText("Started") 
+      		print("Freze Data loading")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "unFrezeData",
+	Callback = function()
+        game:GetService("ReplicatedStorage").Remote.SetDungeonSetting:FireServer("Theme", Options.Undo)
+        TextField:SetText("Undone")
+      		print("unFreze Data loading")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Rejoin Server",
+	Callback = function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+      		print("loading")
+  	end    
+})
+
+OrionLib:Init()
